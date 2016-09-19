@@ -18,4 +18,14 @@ class App < Sinatra::Base
     convert_temperature(params[:to], params[:from], params[:temperature].to_f)
   end
 
+  get '/:conversion_type/:origin_unit/:value/:destination_unit' do
+    if params[:conversion_type] == 'velocity'
+      weight = Weight::Weight.new(params[:value], :destination_unit)
+      { weight.method("to_#{params[:destination_unit]}").call }.to_json
+    elsif params[:conversion_type] == 'weight'
+      'hello w'
+    end
+
+  end
+
 end
