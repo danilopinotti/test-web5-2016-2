@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'minitest', '~> 5.9'
+gem 'simplecov', '~> 0.12.0'
+gem 'rubocop', '~> 0.42.0'
+gem 'brakeman'
+gem 'fasterer', '~> 0.3.2'
+gem 'sinatra', '~> 1.4', '>= 1.4.7'
+gem 'rack-test', '~> 0.6.3'
+gem 'rake', '~> 11.2', '>= 11.2.2'
