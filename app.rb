@@ -6,7 +6,13 @@ require_relative 'lib/velocity'
 # App
 class App < Sinatra::Base
   get '/' do
-    "WEB5 exam!\nRoutes: /weight/unit_origin/value_to_convert/distinarion_unit"
+    "WEB5 exam!<br>
+    Routes: /type/unit_origin/value_to_convert/distination_unit <br>
+      Types: velocity / weight <br>
+      Velocity units: ms, kh, mph, knot, fts.<br>
+      Weight units: kg, g, ton, po, oz, ct.<br>
+      <a href=\"https://travis-ci.org/danilopinotti/test-web5-2016-2\">Travis link</a>
+      "
   end
 
   get '/:conversion_type/:origin_unit/:value/:destination_unit' do
