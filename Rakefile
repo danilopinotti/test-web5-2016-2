@@ -21,3 +21,8 @@ Rake::TestTask.new("test:all") do |t|
   t.verbose = true
   t.test_files = FileList['test/**/*_test.rb']
 end
+
+desc "Run the rubocop"
+task :rubocop do
+    sh 'rubocop lib/'
+end
