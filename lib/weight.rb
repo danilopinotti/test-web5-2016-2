@@ -14,12 +14,12 @@ module Weight
       @original_value = value.to_f
       @type = type
 
-      @kvalue = @constants[type] * @original_value
+      @kvalue = @constants_to_kg[type] * @original_value
     end # => Method initialize
 
     def load_constants
-      @constants = Hash.new 'constants'
-      @constants = {
+      @constants_to_kg = Hash.new 'constants'
+      @constants_to_kg = {
         'kg' => 1,
         'g' => 1 / 1000,
         'ton' => 1000,
@@ -30,27 +30,27 @@ module Weight
     end
 
     def to_g
-      @kvalue * 1000
+      @kvalue / @constants_to_kg['g']
     end
 
     def to_kg
-      @kvalue
+      @kvalue / @constants_to_kg['kg']
     end
 
     def to_ton
-      (@kvalue / 1000)
+      @kvalue / @constants_to_kg['ton']
     end
 
     def to_po
-      @kvalue * 2.2046
+      @kvalue / @constants_to_kg['po']
     end
 
     def to_oz
-      @kvalue * 35.274
+      @kvalue / @constants_to_kg['oz']
     end
 
     def to_ct
-      @kvalue * 5000
+      @kvalue / @constants_to_kg['ct']
     end
   end # => Class
 end # => Module

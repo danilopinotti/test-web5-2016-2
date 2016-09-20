@@ -2,6 +2,7 @@ require 'sinatra'
 require 'json'
 require_relative 'lib/temperature'
 require_relative 'lib/weight'
+require_relative 'lib/velocity'
 
 # App
 class App < Sinatra::Base
@@ -12,7 +13,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    "Put this in your pipe & smoke it!\n"
+    "WEB5 exam!\nRoutes: /weight/unit_origin/value_to_convert/distinarion_unit"
   end
 
   get '/temperature/:to/:temperature/in_:from' do
@@ -23,10 +24,13 @@ class App < Sinatra::Base
     content_type :json
     if params[:conversion_type] == 'weight'
       weight = Weight::Weight.new(params[:value], params[:origin_unit])
-      { weight: weight.method("to_#{params[:destination_unit]}").call }.to_json
+      { weight: weight.method("to_#{params[:destination_unit]}").call }
+        .to_json
 
     elsif params[:conversion_type] == 'velocity'
-      'hello w'
+      velocity = Velocity::Velocity.new(params[:value], params[:origin_unit])
+      { velocity: velocity.method("to_#{params[:destination_unit]}").call }
+        .to_json
     end
   end
 end
