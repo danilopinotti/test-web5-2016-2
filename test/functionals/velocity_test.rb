@@ -13,10 +13,4 @@ class VelocityTest < Minitest::Test
     assert_equal 200, last_response.status
   end
 
-  def test_simple_velocity
-    get '/velocity/kg/100/ton'
-    assert_equal 200, last_response.status
-
-  end
-
 end
