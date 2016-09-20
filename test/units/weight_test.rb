@@ -1,7 +1,6 @@
 require_relative '../test_helper'
 require_relative '../../lib/weight'
 
-# => Teste unitário por estar testando métodos
 # => Um assert_equal por teste
 
 class WeightTest < Minitest::Test
@@ -38,7 +37,7 @@ class WeightTest < Minitest::Test
   end
 
   def test_weight_ton_to_oz_7
-    assert_equal 15_273_642_642.0, Weight::Weight.new(433.0, 'ton').to_oz
+    assert_equal 15_273_642.0, Weight::Weight.new(433.0, 'ton').to_oz
   end
 
   def test_weight_oz_to_kg_8
