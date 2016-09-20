@@ -1,4 +1,4 @@
-task default: ['test:units']
+task default: ['test:all']
 
 namespace :test do
   desc 'Run the tests'
@@ -9,19 +9,15 @@ namespace :test do
 
   desc 'Run the units test'
   task :units do
-    sh "echo 'Velocity'"
+    sh "echo 'Running unitary tests'"
     ruby 'test/units/velocity_test.rb'
-
-    sh "echo 'Weight'"
     ruby 'test/units/weight_test.rb'
   end
 
   desc 'Run the functionals test'
   task :functionals do
-    sh "echo 'Velocity'"
+    sh "echo 'Running functional tests'"
     ruby 'test/functionals/velocity_test.rb'
-
-    sh "echo 'Weight'"
     ruby 'test/functionals/weight_test.rb'
   end
 end
