@@ -2,10 +2,6 @@ require_relative 'weight/version'
 
 # => Temperature Gem
 module Velocity
-  def self.say
-    'Velocity module'
-  end
-
   # => Class temperature
   class Velocity
     def initialize(value, type)

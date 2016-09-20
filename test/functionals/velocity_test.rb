@@ -13,831 +13,842 @@ class VelocityTest < Minitest::Test
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_kh_to_knot_0
-    get '/velocity/kh/51.0/knot'
+  def test_velocity_knot_to_mph_0
+    get '/velocity/knot/51.0/mph'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":27.54}', last_response.body
   end
 
-  def test_velocity_kh_to_knot_1
-    get '/velocity/kh/59.0/knot'
+  def test_velocity_kh_to_mph_1
+    get '/velocity/kh/33.0/mph'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":31.86}', last_response.body
   end
 
   def test_velocity_kh_to_mph_2
-    get '/velocity/kh/74.0/mph'
+    get '/velocity/kh/42.0/mph'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_mph_to_kh_3
-    get '/velocity/mph/14.0/kh'
+  def test_velocity_ms_to_kh_3
+    get '/velocity/ms/81.0/kh'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":22.53}', last_response.body
+    assert_equal '{"velocity":291.6}', last_response.body
   end
 
-  def test_velocity_ms_to_mph_4
-    get '/velocity/ms/81.0/mph'
+  def test_velocity_mph_to_mph_4
+    get '/velocity/mph/22.0/mph'
     assert_equal 200, last_response.status
+    assert_equal '{"velocity":22.0}', last_response.body
   end
 
-  def test_velocity_ms_to_mph_5
-    get '/velocity/ms/9.0/mph'
+  def test_velocity_fts_to_kh_5
+    get '/velocity/fts/66.0/kh'
     assert_equal 200, last_response.status
+    assert_equal '{"velocity":72.42}', last_response.body
   end
 
-  def test_velocity_mph_to_mph_6
-    get '/velocity/mph/90.0/mph'
+  def test_velocity_fts_to_knot_6
+    get '/velocity/fts/21.0/knot'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":90.0}', last_response.body
+    assert_equal '{"velocity":12.44}', last_response.body
   end
 
-  def test_velocity_kh_to_mph_7
-    get '/velocity/kh/68.0/mph'
+  def test_velocity_knot_to_kh_7
+    get '/velocity/knot/64.0/kh'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_knot_to_ms_8
-    get '/velocity/knot/12.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":6.17}', last_response.body
-  end
-
-  def test_velocity_kh_to_knot_9
-    get '/velocity/kh/11.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_kh_10
-    get '/velocity/ms/73.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_ms_11
-    get '/velocity/kh/98.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_ms_12
-    get '/velocity/knot/29.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":14.92}', last_response.body
-  end
-
-  def test_velocity_knot_to_knot_13
-    get '/velocity/knot/27.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_mph_14
-    get '/velocity/kh/32.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":19.88}', last_response.body
-  end
-
-  def test_velocity_mph_to_mph_15
-    get '/velocity/mph/85.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":85.0}', last_response.body
-  end
-
-  def test_velocity_mph_to_kh_16
-    get '/velocity/mph/81.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_knot_17
-    get '/velocity/mph/16.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":13.9}', last_response.body
-  end
-
-  def test_velocity_mph_to_ms_18
-    get '/velocity/mph/80.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_kh_19
-    get '/velocity/mph/43.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_ms_20
-    get '/velocity/mph/43.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":19.22}', last_response.body
-  end
-
-  def test_velocity_ms_to_knot_21
-    get '/velocity/ms/38.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_ms_22
-    get '/velocity/knot/66.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_kh_23
-    get '/velocity/kh/54.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_mph_24
-    get '/velocity/kh/32.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":19.88}', last_response.body
-  end
-
-  def test_velocity_mph_to_knot_25
-    get '/velocity/mph/31.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_mph_26
-    get '/velocity/knot/65.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":74.8}', last_response.body
-  end
-
-  def test_velocity_knot_to_knot_27
-    get '/velocity/knot/49.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_ms_28
-    get '/velocity/mph/92.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":41.13}', last_response.body
-  end
-
-  def test_velocity_knot_to_kh_29
-    get '/velocity/knot/71.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":131.49}', last_response.body
-  end
-
-  def test_velocity_ms_to_mph_30
-    get '/velocity/ms/20.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":44.74}', last_response.body
-  end
-
-  def test_velocity_kh_to_kh_31
-    get '/velocity/kh/40.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_mph_32
-    get '/velocity/knot/86.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":98.97}', last_response.body
-  end
-
-  def test_velocity_knot_to_knot_33
-    get '/velocity/knot/77.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":77.0}', last_response.body
-  end
-
-  def test_velocity_mph_to_kh_34
-    get '/velocity/mph/49.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_ms_35
-    get '/velocity/knot/80.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":41.16}', last_response.body
-  end
-
-  def test_velocity_ms_to_kh_36
-    get '/velocity/ms/4.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_ms_37
-    get '/velocity/knot/82.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":42.18}', last_response.body
-  end
-
-  def test_velocity_knot_to_mph_38
-    get '/velocity/knot/56.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_ms_39
-    get '/velocity/kh/66.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":18.33}', last_response.body
-  end
-
-  def test_velocity_ms_to_ms_40
-    get '/velocity/ms/23.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":23.0}', last_response.body
-  end
-
-  def test_velocity_ms_to_knot_41
-    get '/velocity/ms/78.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":151.62}', last_response.body
-  end
-
-  def test_velocity_kh_to_knot_42
-    get '/velocity/kh/35.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_kh_43
-    get '/velocity/knot/91.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_kh_44
-    get '/velocity/kh/24.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_knot_45
-    get '/velocity/ms/1.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":1.94}', last_response.body
-  end
-
-  def test_velocity_knot_to_mph_46
-    get '/velocity/knot/70.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":80.55}', last_response.body
-  end
-
-  def test_velocity_kh_to_knot_47
-    get '/velocity/kh/10.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_knot_48
-    get '/velocity/kh/38.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":20.52}', last_response.body
-  end
-
-  def test_velocity_knot_to_mph_49
-    get '/velocity/knot/83.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_kh_50
-    get '/velocity/kh/58.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_knot_51
-    get '/velocity/knot/3.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_knot_52
-    get '/velocity/knot/95.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":95.0}', last_response.body
-  end
-
-  def test_velocity_kh_to_kh_53
-    get '/velocity/kh/48.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":48.0}', last_response.body
-  end
-
-  def test_velocity_ms_to_mph_54
-    get '/velocity/ms/27.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_kh_55
-    get '/velocity/ms/85.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":306.0}', last_response.body
-  end
-
-  def test_velocity_ms_to_knot_56
-    get '/velocity/ms/2.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_mph_57
-    get '/velocity/kh/11.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_ms_58
-    get '/velocity/kh/13.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_mph_59
-    get '/velocity/mph/53.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_mph_60
-    get '/velocity/ms/47.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_ms_61
-    get '/velocity/ms/73.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_mph_62
-    get '/velocity/kh/60.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_knot_63
-    get '/velocity/ms/34.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":66.09}', last_response.body
-  end
-
-  def test_velocity_knot_to_knot_64
-    get '/velocity/knot/66.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":66.0}', last_response.body
-  end
-
-  def test_velocity_ms_to_ms_65
-    get '/velocity/ms/70.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_kh_66
-    get '/velocity/knot/53.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":98.16}', last_response.body
-  end
-
-  def test_velocity_mph_to_mph_67
-    get '/velocity/mph/63.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_kh_68
-    get '/velocity/ms/20.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_mph_69
-    get '/velocity/kh/57.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":35.42}', last_response.body
-  end
-
-  def test_velocity_mph_to_ms_70
-    get '/velocity/mph/63.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":28.16}', last_response.body
-  end
-
-  def test_velocity_knot_to_kh_71
-    get '/velocity/knot/26.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":48.15}', last_response.body
-  end
-
-  def test_velocity_ms_to_kh_72
-    get '/velocity/ms/75.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":270.0}', last_response.body
-  end
-
-  def test_velocity_mph_to_kh_73
-    get '/velocity/mph/93.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":149.67}', last_response.body
-  end
-
-  def test_velocity_mph_to_kh_74
-    get '/velocity/mph/67.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":107.83}', last_response.body
-  end
-
-  def test_velocity_knot_to_kh_75
-    get '/velocity/knot/98.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_kh_76
-    get '/velocity/kh/45.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":45.0}', last_response.body
-  end
-
-  def test_velocity_kh_to_knot_77
-    get '/velocity/kh/25.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_knot_78
-    get '/velocity/kh/80.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":43.2}', last_response.body
-  end
-
-  def test_velocity_mph_to_mph_79
-    get '/velocity/mph/31.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":31.0}', last_response.body
-  end
-
-  def test_velocity_knot_to_kh_80
-    get '/velocity/knot/85.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":157.42}', last_response.body
-  end
-
-  def test_velocity_mph_to_ms_81
-    get '/velocity/mph/62.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_kh_82
-    get '/velocity/kh/58.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_kh_83
-    get '/velocity/knot/67.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_mph_84
-    get '/velocity/knot/18.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":20.71}', last_response.body
-  end
-
-  def test_velocity_mph_to_ms_85
-    get '/velocity/mph/98.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":43.81}', last_response.body
-  end
-
-  def test_velocity_kh_to_kh_86
-    get '/velocity/kh/90.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_knot_87
-    get '/velocity/mph/88.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_ms_88
-    get '/velocity/mph/16.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_kh_89
-    get '/velocity/mph/41.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":65.98}', last_response.body
-  end
-
-  def test_velocity_knot_to_ms_90
-    get '/velocity/knot/7.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":3.6}', last_response.body
-  end
-
-  def test_velocity_kh_to_kh_91
+  def test_velocity_kh_to_kh_8
     get '/velocity/kh/49.0/kh'
     assert_equal 200, last_response.status
+    assert_equal '{"velocity":49.0}', last_response.body
   end
 
-  def test_velocity_kh_to_knot_92
-    get '/velocity/kh/92.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":49.68}', last_response.body
-  end
-
-  def test_velocity_mph_to_knot_93
-    get '/velocity/mph/24.0/knot'
+  def test_velocity_mph_to_fts_9
+    get '/velocity/mph/17.0/fts'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_knot_to_knot_94
-    get '/velocity/knot/72.0/knot'
+  def test_velocity_knot_to_fts_10
+    get '/velocity/knot/29.0/fts'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":72.0}', last_response.body
+    assert_equal '{"velocity":48.95}', last_response.body
   end
 
-  def test_velocity_ms_to_ms_95
-    get '/velocity/ms/39.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_mph_96
-    get '/velocity/kh/25.0/mph'
+  def test_velocity_knot_to_kh_11
+    get '/velocity/knot/27.0/kh'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_ms_to_knot_97
-    get '/velocity/ms/55.0/knot'
+  def test_velocity_mph_to_ms_12
+    get '/velocity/mph/32.0/ms'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_mph_to_mph_98
-    get '/velocity/mph/93.0/mph'
+  def test_velocity_kh_to_ms_13
+    get '/velocity/kh/14.0/ms'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":93.0}', last_response.body
+    assert_equal '{"velocity":3.89}', last_response.body
   end
 
-  def test_velocity_kh_to_mph_99
-    get '/velocity/kh/17.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_ms_100
-    get '/velocity/kh/87.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":24.17}', last_response.body
-  end
-
-  def test_velocity_ms_to_mph_101
-    get '/velocity/ms/29.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":64.87}', last_response.body
-  end
-
-  def test_velocity_kh_to_kh_102
-    get '/velocity/kh/32.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_mph_103
-    get '/velocity/mph/1.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_kh_104
-    get '/velocity/mph/2.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_mph_105
-    get '/velocity/kh/83.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_kh_106
-    get '/velocity/knot/6.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_mph_107
-    get '/velocity/mph/94.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":94.0}', last_response.body
-  end
-
-  def test_velocity_mph_to_kh_108
-    get '/velocity/mph/82.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_kh_109
-    get '/velocity/mph/74.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_kh_110
-    get '/velocity/knot/8.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":14.82}', last_response.body
-  end
-
-  def test_velocity_mph_to_mph_111
-    get '/velocity/mph/64.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_ms_112
-    get '/velocity/knot/94.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":48.36}', last_response.body
-  end
-
-  def test_velocity_mph_to_mph_113
-    get '/velocity/mph/56.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":56.0}', last_response.body
-  end
-
-  def test_velocity_knot_to_mph_114
-    get '/velocity/knot/60.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":69.05}', last_response.body
-  end
-
-  def test_velocity_mph_to_mph_115
-    get '/velocity/mph/38.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":38.0}', last_response.body
-  end
-
-  def test_velocity_mph_to_kh_116
-    get '/velocity/mph/22.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_kh_117
-    get '/velocity/mph/72.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_ms_118
-    get '/velocity/knot/1.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":0.51}', last_response.body
-  end
-
-  def test_velocity_ms_to_mph_119
-    get '/velocity/ms/95.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":212.51}', last_response.body
-  end
-
-  def test_velocity_ms_to_ms_120
-    get '/velocity/ms/77.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_kh_121
-    get '/velocity/kh/75.0/kh'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":75.0}', last_response.body
-  end
-
-  def test_velocity_mph_to_mph_122
-    get '/velocity/mph/43.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_knot_to_kh_123
-    get '/velocity/knot/46.0/kh'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_kh_to_knot_124
-    get '/velocity/kh/34.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":18.36}', last_response.body
-  end
-
-  def test_velocity_kh_to_mph_125
-    get '/velocity/kh/99.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":61.52}', last_response.body
-  end
-
-  def test_velocity_kh_to_knot_126
-    get '/velocity/kh/76.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_knot_127
-    get '/velocity/mph/43.0/knot'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":37.37}', last_response.body
-  end
-
-  def test_velocity_knot_to_ms_128
-    get '/velocity/knot/78.0/ms'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":40.13}', last_response.body
-  end
-
-  def test_velocity_kh_to_knot_129
-    get '/velocity/kh/39.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_knot_130
-    get '/velocity/ms/82.0/knot'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_mph_131
-    get '/velocity/ms/19.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":42.5}', last_response.body
-  end
-
-  def test_velocity_kh_to_mph_132
-    get '/velocity/kh/97.0/mph'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_ms_to_mph_133
-    get '/velocity/ms/23.0/mph'
-    assert_equal 200, last_response.status
-    assert_equal '{"velocity":51.45}', last_response.body
-  end
-
-  def test_velocity_kh_to_ms_134
-    get '/velocity/kh/49.0/ms'
-    assert_equal 200, last_response.status
-  end
-
-  def test_velocity_mph_to_ms_135
+  def test_velocity_mph_to_ms_14
     get '/velocity/mph/19.0/ms'
     assert_equal 200, last_response.status
     assert_equal '{"velocity":8.49}', last_response.body
   end
 
-  def test_velocity_mph_to_knot_136
-    get '/velocity/mph/35.0/knot'
+  def test_velocity_kh_to_knot_15
+    get '/velocity/kh/8.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":4.32}', last_response.body
+  end
+
+  def test_velocity_knot_to_ms_16
+    get '/velocity/knot/9.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":4.63}', last_response.body
+  end
+
+  def test_velocity_fts_to_mph_17
+    get '/velocity/fts/38.0/mph'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_kh_to_knot_137
-    get '/velocity/kh/28.0/knot'
+  def test_velocity_kh_to_knot_18
+    get '/velocity/kh/56.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":30.24}', last_response.body
+  end
+
+  def test_velocity_kh_to_ms_19
+    get '/velocity/kh/32.0/ms'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_mph_to_mph_138
-    get '/velocity/mph/45.0/mph'
+  def test_velocity_knot_to_kh_20
+    get '/velocity/knot/30.0/kh'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_ms_to_ms_139
-    get '/velocity/ms/59.0/ms'
+  def test_velocity_mph_to_mph_21
+    get '/velocity/mph/65.0/mph'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_mph_to_ms_140
-    get '/velocity/mph/58.0/ms'
+  def test_velocity_knot_to_fts_22
+    get '/velocity/knot/39.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":65.82}', last_response.body
+  end
+
+  def test_velocity_mph_to_mph_23
+    get '/velocity/mph/56.0/mph'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_knot_to_kh_141
-    get '/velocity/knot/26.0/kh'
+  def test_velocity_fts_to_kh_24
+    get '/velocity/fts/15.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":16.46}', last_response.body
+  end
+
+  def test_velocity_mph_to_ms_25
+    get '/velocity/mph/84.0/ms'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_mph_to_kh_142
-    get '/velocity/mph/51.0/kh'
+  def test_velocity_kh_to_knot_26
+    get '/velocity/kh/33.0/knot'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":82.08}', last_response.body
+    assert_equal '{"velocity":17.82}', last_response.body
   end
 
-  def test_velocity_mph_to_ms_143
-    get '/velocity/mph/40.0/ms'
+  def test_velocity_knot_to_ms_27
+    get '/velocity/knot/46.0/ms'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":17.88}', last_response.body
   end
 
-  def test_velocity_kh_to_mph_144
-    get '/velocity/kh/69.0/mph'
+  def test_velocity_kh_to_ms_28
+    get '/velocity/kh/14.0/ms'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":42.87}', last_response.body
   end
 
-  def test_velocity_knot_to_kh_145
-    get '/velocity/knot/74.0/kh'
+  def test_velocity_fts_to_fts_29
+    get '/velocity/fts/80.0/fts'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":137.05}', last_response.body
   end
 
-  def test_velocity_kh_to_ms_146
+  def test_velocity_ms_to_ms_30
+    get '/velocity/ms/82.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":82.0}', last_response.body
+  end
+
+  def test_velocity_knot_to_mph_31
+    get '/velocity/knot/56.0/mph'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_fts_to_fts_32
+    get '/velocity/fts/12.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":12.0}', last_response.body
+  end
+
+  def test_velocity_fts_to_mph_33
+    get '/velocity/fts/78.0/mph'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_knot_34
+    get '/velocity/knot/33.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_kh_35
+    get '/velocity/ms/71.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":255.6}', last_response.body
+  end
+
+  def test_velocity_fts_to_knot_36
+    get '/velocity/fts/15.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":8.89}', last_response.body
+  end
+
+  def test_velocity_knot_to_kh_37
+    get '/velocity/knot/10.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_kh_to_fts_38
+    get '/velocity/kh/38.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_knot_39
+    get '/velocity/mph/63.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":54.75}', last_response.body
+  end
+
+  def test_velocity_knot_to_knot_40
+    get '/velocity/knot/29.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_mph_41
+    get '/velocity/knot/95.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":109.32}', last_response.body
+  end
+
+  def test_velocity_mph_to_knot_42
+    get '/velocity/mph/97.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":84.29}', last_response.body
+  end
+
+  def test_velocity_fts_to_kh_43
+    get '/velocity/fts/18.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":19.75}', last_response.body
+  end
+
+  def test_velocity_fts_to_knot_44
+    get '/velocity/fts/2.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_kh_45
+    get '/velocity/knot/93.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":172.24}', last_response.body
+  end
+
+  def test_velocity_mph_to_kh_46
+    get '/velocity/mph/53.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_kh_47
+    get '/velocity/knot/100.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":185.2}', last_response.body
+  end
+
+  def test_velocity_knot_to_fts_48
+    get '/velocity/knot/96.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_ms_49
+    get '/velocity/mph/31.0/ms'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_knot_50
+    get '/velocity/mph/100.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_fts_51
+    get '/velocity/ms/70.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_fts_52
+    get '/velocity/ms/53.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":173.88}', last_response.body
+  end
+
+  def test_velocity_mph_to_ms_53
+    get '/velocity/mph/57.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":25.48}', last_response.body
+  end
+
+  def test_velocity_kh_to_mph_54
+    get '/velocity/kh/26.0/mph'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_ms_55
+    get '/velocity/mph/44.0/ms'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_kh_to_mph_56
+    get '/velocity/kh/90.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":55.92}', last_response.body
+  end
+
+  def test_velocity_kh_to_kh_57
+    get '/velocity/kh/87.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":87.0}', last_response.body
+  end
+
+  def test_velocity_knot_to_knot_58
+    get '/velocity/knot/25.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_ms_59
+    get '/velocity/knot/80.0/ms'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_fts_60
+    get '/velocity/mph/31.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_fts_61
+    get '/velocity/mph/83.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_knot_62
+    get '/velocity/ms/58.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_fts_63
+    get '/velocity/knot/18.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":30.38}', last_response.body
+  end
+
+  def test_velocity_mph_to_fts_64
+    get '/velocity/mph/98.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":143.73}', last_response.body
+  end
+
+  def test_velocity_kh_to_ms_65
     get '/velocity/kh/90.0/ms'
     assert_equal 200, last_response.status
     assert_equal '{"velocity":25.0}', last_response.body
   end
 
-  def test_velocity_ms_to_ms_147
-    get '/velocity/ms/34.0/ms'
+  def test_velocity_ms_to_fts_66
+    get '/velocity/ms/51.0/fts'
     assert_equal 200, last_response.status
-    assert_equal '{"velocity":34.0}', last_response.body
   end
 
-  def test_velocity_ms_to_knot_148
+  def test_velocity_kh_to_mph_67
+    get '/velocity/kh/41.0/mph'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_fts_68
+    get '/velocity/ms/99.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_kh_to_kh_69
+    get '/velocity/kh/21.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":21.0}', last_response.body
+  end
+
+  def test_velocity_knot_to_fts_70
+    get '/velocity/knot/93.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":156.97}', last_response.body
+  end
+
+  def test_velocity_mph_to_ms_71
+    get '/velocity/mph/24.0/ms'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_fts_to_ms_72
+    get '/velocity/fts/35.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":10.67}', last_response.body
+  end
+
+  def test_velocity_kh_to_knot_73
+    get '/velocity/kh/35.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_mph_74
+    get '/velocity/mph/48.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":48.0}', last_response.body
+  end
+
+  def test_velocity_knot_to_kh_75
+    get '/velocity/knot/17.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":31.48}', last_response.body
+  end
+
+  def test_velocity_fts_to_mph_76
+    get '/velocity/fts/34.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":23.18}', last_response.body
+  end
+
+  def test_velocity_knot_to_kh_77
+    get '/velocity/knot/32.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":59.26}', last_response.body
+  end
+
+  def test_velocity_knot_to_mph_78
+    get '/velocity/knot/26.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":29.92}', last_response.body
+  end
+
+  def test_velocity_kh_to_knot_79
+    get '/velocity/kh/57.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_fts_to_fts_80
+    get '/velocity/fts/2.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":2.0}', last_response.body
+  end
+
+  def test_velocity_mph_to_knot_81
+    get '/velocity/mph/26.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":22.59}', last_response.body
+  end
+
+  def test_velocity_ms_to_mph_82
+    get '/velocity/ms/62.0/mph'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_ms_83
+    get '/velocity/knot/94.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":48.36}', last_response.body
+  end
+
+  def test_velocity_mph_to_mph_84
+    get '/velocity/mph/56.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":56.0}', last_response.body
+  end
+
+  def test_velocity_knot_to_mph_85
+    get '/velocity/knot/60.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":69.05}', last_response.body
+  end
+
+  def test_velocity_mph_to_ms_86
+    get '/velocity/mph/10.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":4.47}', last_response.body
+  end
+
+  def test_velocity_knot_to_mph_87
+    get '/velocity/knot/94.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":108.17}', last_response.body
+  end
+
+  def test_velocity_kh_to_kh_88
+    get '/velocity/kh/18.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_ms_89
+    get '/velocity/mph/32.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":14.31}', last_response.body
+  end
+
+  def test_velocity_fts_to_ms_90
+    get '/velocity/fts/36.0/ms'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_kh_to_kh_91
+    get '/velocity/kh/75.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":75.0}', last_response.body
+  end
+
+  def test_velocity_mph_to_kh_92
+    get '/velocity/mph/43.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":69.2}', last_response.body
+  end
+
+  def test_velocity_mph_to_kh_93
+    get '/velocity/mph/85.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_mph_94
+    get '/velocity/knot/76.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":87.46}', last_response.body
+  end
+
+  def test_velocity_knot_to_knot_95
+    get '/velocity/knot/76.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":76.0}', last_response.body
+  end
+
+  def test_velocity_knot_to_fts_96
+    get '/velocity/knot/88.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":148.53}', last_response.body
+  end
+
+  def test_velocity_knot_to_mph_97
+    get '/velocity/knot/39.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":44.88}', last_response.body
+  end
+
+  def test_velocity_knot_to_ms_98
+    get '/velocity/knot/51.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":26.24}', last_response.body
+  end
+
+  def test_velocity_kh_to_kh_99
+    get '/velocity/kh/6.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":6.0}', last_response.body
+  end
+
+  def test_velocity_mph_to_ms_100
+    get '/velocity/mph/23.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":10.28}', last_response.body
+  end
+
+  def test_velocity_kh_to_kh_101
+    get '/velocity/kh/92.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":92.0}', last_response.body
+  end
+
+  def test_velocity_mph_to_knot_102
+    get '/velocity/mph/71.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":61.7}', last_response.body
+  end
+
+  def test_velocity_mph_to_knot_103
+    get '/velocity/mph/0.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":0.0}', last_response.body
+  end
+
+  def test_velocity_kh_to_fts_104
+    get '/velocity/kh/91.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_knot_105
+    get '/velocity/mph/57.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_fts_to_mph_106
+    get '/velocity/fts/96.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":65.45}', last_response.body
+  end
+
+  def test_velocity_mph_to_knot_107
+    get '/velocity/mph/57.0/knot'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":49.53}', last_response.body
+  end
+
+  def test_velocity_fts_to_ms_108
+    get '/velocity/fts/29.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":8.84}', last_response.body
+  end
+
+  def test_velocity_fts_to_kh_109
+    get '/velocity/fts/72.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":79.0}', last_response.body
+  end
+
+  def test_velocity_mph_to_kh_110
+    get '/velocity/mph/12.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":19.31}', last_response.body
+  end
+
+  def test_velocity_fts_to_ms_111
+    get '/velocity/fts/90.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":27.43}', last_response.body
+  end
+
+  def test_velocity_fts_to_ms_112
+    get '/velocity/fts/68.0/ms'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_knot_113
     get '/velocity/ms/15.0/knot'
     assert_equal 200, last_response.status
   end
 
-  def test_velocity_ms_to_mph_149
+  def test_velocity_ms_to_mph_114
     get '/velocity/ms/2.0/mph'
     assert_equal 200, last_response.status
     assert_equal '{"velocity":4.47}', last_response.body
   end
 
-  def test_velocity_knot_to_knot_150
+  def test_velocity_knot_to_knot_115
     get '/velocity/knot/4.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_kh_116
+    get '/velocity/mph/88.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_mph_117
+    get '/velocity/ms/72.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":161.06}', last_response.body
+  end
+
+  def test_velocity_fts_to_kh_118
+    get '/velocity/fts/82.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":89.98}', last_response.body
+  end
+
+  def test_velocity_kh_to_ms_119
+    get '/velocity/kh/74.0/ms'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_fts_120
+    get '/velocity/mph/3.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_kh_121
+    get '/velocity/knot/12.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_fts_122
+    get '/velocity/ms/89.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":291.99}', last_response.body
+  end
+
+  def test_velocity_knot_to_fts_123
+    get '/velocity/knot/70.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_fts_124
+    get '/velocity/ms/30.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":98.43}', last_response.body
+  end
+
+  def test_velocity_kh_to_ms_125
+    get '/velocity/kh/91.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":25.28}', last_response.body
+  end
+
+  def test_velocity_knot_to_kh_126
+    get '/velocity/knot/13.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_knot_127
+    get '/velocity/ms/16.0/knot'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_mph_128
+    get '/velocity/knot/53.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":60.99}', last_response.body
+  end
+
+  def test_velocity_ms_to_kh_129
+    get '/velocity/ms/73.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":262.8}', last_response.body
+  end
+
+  def test_velocity_fts_to_mph_130
+    get '/velocity/fts/86.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":58.64}', last_response.body
+  end
+
+  def test_velocity_ms_to_fts_131
+    get '/velocity/ms/12.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":39.37}', last_response.body
+  end
+
+  def test_velocity_kh_to_ms_132
+    get '/velocity/kh/72.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":20.0}', last_response.body
+  end
+
+  def test_velocity_kh_to_fts_133
+    get '/velocity/kh/75.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":68.35}', last_response.body
+  end
+
+  def test_velocity_fts_to_mph_134
+    get '/velocity/fts/71.0/mph'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_fts_135
+    get '/velocity/knot/29.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_mph_136
+    get '/velocity/ms/14.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":31.32}', last_response.body
+  end
+
+  def test_velocity_ms_to_fts_137
+    get '/velocity/ms/43.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_kh_138
+    get '/velocity/knot/12.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_knot_to_fts_139
+    get '/velocity/knot/33.0/fts'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":55.7}', last_response.body
+  end
+
+  def test_velocity_ms_to_mph_140
+    get '/velocity/ms/88.0/mph'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":196.85}', last_response.body
+  end
+
+  def test_velocity_knot_to_kh_141
+    get '/velocity/knot/70.0/kh'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":129.64}', last_response.body
+  end
+
+  def test_velocity_mph_to_fts_142
+    get '/velocity/mph/91.0/fts'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_fts_to_ms_143
+    get '/velocity/fts/36.0/ms'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_ms_to_kh_144
+    get '/velocity/ms/58.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_kh_to_kh_145
+    get '/velocity/kh/27.0/kh'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_mph_to_ms_146
+    get '/velocity/mph/15.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":6.71}', last_response.body
+  end
+
+  def test_velocity_kh_to_ms_147
+    get '/velocity/kh/85.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":23.61}', last_response.body
+  end
+
+  def test_velocity_mph_to_ms_148
+    get '/velocity/mph/77.0/ms'
+    assert_equal 200, last_response.status
+  end
+
+  def test_velocity_fts_to_ms_149
+    get '/velocity/fts/56.0/ms'
+    assert_equal 200, last_response.status
+    assert_equal '{"velocity":17.07}', last_response.body
+  end
+
+  def test_velocity_kh_to_mph_150
+    get '/velocity/kh/100.0/mph'
     assert_equal 200, last_response.status
   end
 end
