@@ -12,7 +12,6 @@ module Weight
       load_constants
 
       @original_value = value.to_f
-      @type = type
 
       @kvalue = @constants_to_kg[type] * @original_value
     end # => Method initialize
@@ -30,27 +29,27 @@ module Weight
     end
 
     def to_g
-      @kvalue / @constants_to_kg['g']
+      (@kvalue / @constants_to_kg['g']).round(2)
     end
 
     def to_kg
-      @kvalue / @constants_to_kg['kg']
+      (@kvalue / @constants_to_kg['kg']).round(2)
     end
 
     def to_ton
-      @kvalue / @constants_to_kg['ton']
+      (@kvalue / @constants_to_kg['ton']).round(2)
     end
 
     def to_po
-      @kvalue / @constants_to_kg['po']
+      (@kvalue / @constants_to_kg['po']).round(2)
     end
 
     def to_oz
-      @kvalue / @constants_to_kg['oz']
+      (@kvalue / @constants_to_kg['oz']).round(2)
     end
 
     def to_ct
-      @kvalue / @constants_to_kg['ct']
+      (@kvalue / @constants_to_kg['ct']).round(2)
     end
   end # => Class
 end # => Module
