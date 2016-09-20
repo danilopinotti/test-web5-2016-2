@@ -10,7 +10,7 @@ module Velocity
   class Velocity
     def initialize(value, type)
       load_constants
-      
+
       @original_value = value.to_f
 
       @msvalue = @constants_to_ms[type] * @original_value
