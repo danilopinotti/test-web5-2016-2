@@ -9,12 +9,19 @@ namespace :test do
 
   desc 'Run the units test'
   task :units do
-    ruby 'test/units/temperature_test.rb'
-    sh "echo 'teste'"
+    sh "echo 'Velocity'"
+    ruby 'test/units/velocity_test.rb'
+
+    sh "echo 'Weight'"
+    ruby 'test/units/weight_test.rb'
   end
 
   desc 'Run the functionals test'
   task :functionals do
-    ruby 'test/functionals/temperature_test.rb'
+    sh "echo 'Velocity'"
+    ruby 'test/functionals/velocity_test.rb'
+
+    sh "echo 'Weight'"
+    ruby 'test/functionals/weight_test.rb'
   end
 end
