@@ -1,8 +1,7 @@
 require_relative '../test_helper'
 require_relative '../../lib/weight'
 
-# => Um assert_equal por teste
-
+# => Testes para peso
 class WeightTest < Minitest::Test
   def test_one_is_one
     assert_equal 1, 1
